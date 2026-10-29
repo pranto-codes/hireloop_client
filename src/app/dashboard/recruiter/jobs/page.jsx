@@ -1,8 +1,9 @@
 import { getCompanyJobs } from "@/Library/api/jobs";
-import React from "react";
 import JobsTable from "./JobsTable";
 
-const RecruiterJobs = async () => {
+export const instant = false;
+
+export default async function RecruiterJobs() {
   const companyId = "comp_123";
 
   const jobs = await getCompanyJobs(companyId);
@@ -14,6 +15,4 @@ const RecruiterJobs = async () => {
       <JobsTable jobs={Array.isArray(jobs) ? jobs : jobs?.jobs || []} />
     </div>
   );
-};
-
-export default RecruiterJobs;
+}
